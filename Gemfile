@@ -1,6 +1,6 @@
 source 'https://rubygems.org'
 
-gem 'rails', path: "/home/neikos/projects/ruby/the.wyvern.rocks/vendor/bundle/ruby/2.2.0/bundler/gems/rails-16214d1108c3"
+gem 'rails', github: "rails/rails"
 gem 'sprockets-rails', github: "rails/sprockets-rails"
 gem 'sprockets', github: "rails/sprockets"
 gem 'sass-rails', github: "rails/sass-rails"
@@ -37,7 +37,7 @@ gem 'simple_form'
 gem 'foundation-rails'
 
 # Use puma as the app server
-gem 'puma'
+gem 'puma', group: [:development, :production]
 
 # Use Capistrano for deployment
 gem 'capistrano-rails', group: :development
