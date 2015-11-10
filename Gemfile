@@ -37,7 +37,7 @@ gem 'simple_form'
 gem 'foundation-rails'
 
 # Use puma as the app server
-gem 'puma'
+gem 'puma', group: [:development, :production]
 
 # Use Capistrano for deployment
 gem 'capistrano-rails', group: :development
