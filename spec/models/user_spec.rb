@@ -2,7 +2,7 @@ require 'rails_helper'
 
 RSpec.describe User do
   let :user do
-    build :user
+    create :user
   end
   subject do
     user
@@ -47,6 +47,18 @@ RSpec.describe User do
       user.name = 'a' * 26
       expect(user).to_not be_valid
     end
+    it 'when required #name has consecutive spaces' do
+      user.name = ' ' * 20
+      expect(user).to_not be_valid
+    end
+    it 'when required #name begins with spaces' do
+      user.name = 'a' + ' ' * 20
+      expect(user).to_not be_valid
+    end
+    it 'when required #name ends with spaces' do
+      user.name = ' ' * 20 + 'a'
+      expect(user).to_not be_valid
+    end
     it 'when required #password is not given' do
       user.password = nil
       expect(user).to_not be_valid
@@ -58,6 +70,17 @@ RSpec.describe User do
     it 'when he has no roles' do
       user.roles.clear
       expect(user).to_not be_valid
+    end
+  end
+
+  context 'can login' do
+    it 'when correct password is given' do
+      expect(user.authenticate(user.password)).to_not eq false
+    end
+  end
+  context 'cannot login' do
+    it 'when incorrect password is given' do
+      expect(user.authenticate(user.password + "asdf")).to eq false
     end
   end
 end

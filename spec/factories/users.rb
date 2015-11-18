@@ -9,5 +9,11 @@ FactoryGirl.define do
     after(:build) do |user|
       user.roles << Role.find_or_create_by(name: "User")
     end
+
+    trait :has_active_session do
+      after :build do |user|
+          user.sessions << Session.create(user: user, ip: "localtest")
+      end
+    end
   end
 end
