@@ -8,11 +8,21 @@
     %title= content_for?(:title) ? yield(:title) : "Untitled"
 
     = stylesheet_link_tag "application"
-    = javascript_include_tag "vendor/modernizr"
     = javascript_include_tag "application", 'data-turbolinks-track' => true
     = csrf_meta_tag
 
   %body
+    = render 'common/topbar'
 
-    = yield
+    #content
+      = yield
 
+  %footer
+    %p.text-center
+      %small
+        &copy; The Wyvern Rocks
+        = Time.now.year
+        \-
+        %em
+          Server Time is
+          = Time.now

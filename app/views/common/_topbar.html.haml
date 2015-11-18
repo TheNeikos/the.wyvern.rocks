@@ -1,0 +1,16 @@
+%nav#navbar.top-bar{'data-topbar' => true, role: 'navigation',
+                    :'data-options' => "is_hover: false",
+                    'data-turbolinks-permanent' => true}
+  %ul.title-area
+    %li.name
+      %h1
+        %a{href: root_path} The Wyvern Rocks
+
+  %section.top-bar-section
+    %ul.right
+      - if logged_in?
+        = topbar_dropdown user_path(current_user), current_user.name do
+          = topbar_link_to users_path, "Users"
+          = topbar_link_to session_path, "Log out"
+      - else
+        = topbar_link_to new_session_path, "Sign in"

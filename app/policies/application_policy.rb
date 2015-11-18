@@ -3,11 +3,16 @@ class ApplicationPolicy
 
   def initialize(user, record)
     @user = user
+
+    if @user and @user.is_banned
+      raise Pundit::NotAuthorizedError, "You have been banned"
+    end
+
     @record = record
   end
 
   def index?
-    false
+    @user.try!(:has_role_root?) || false
   end
 
   def show?
@@ -15,7 +20,7 @@ class ApplicationPolicy
   end
 
   def create?
-    false
+    @user.try!(:has_role_root?) || false
   end
 
   def new?
@@ -23,7 +28,7 @@ class ApplicationPolicy
   end
 
   def update?
-    false
+    @user.try!(:has_role_root?) || false
   end
 
   def edit?
@@ -31,7 +36,7 @@ class ApplicationPolicy
   end
 
   def destroy?
-    false
+    @user.try!(:has_role_root?) || false
   end
 
   def scope

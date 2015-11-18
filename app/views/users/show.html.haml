@@ -1,0 +1,8 @@
+.row
+  .columns.small-12.user-info
+    %a.th.left.avatar-container
+      = image_tag "https://placehold.it/200/ffffff/200"
+    %h1= @user.name
+    - if UserPolicy.new(@user, @user).update? # TODO: Get RSpec and Pundit working together
+      .panel.right
+        = link_to "Edit Profile", edit_user_path(@user)
