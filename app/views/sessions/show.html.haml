@@ -1,0 +1,23 @@
+.row
+  .columns.small-12
+    %h1 Your Sessions
+
+    %table
+      %thead
+        %tr
+          %th Created on
+          %th IP Addr
+          %th Active
+          %th Actions
+      %tbody
+      - @user.sessions.each do |s|
+        %tr
+          %th= s.created_at
+          %th= s.ip
+          %th= s.active?
+          %th= link_to "Destroy", session_path(sess_id: s.id), method: "delete"
+
+
+    .panel
+      = link_to "Click here to Logout", session_path, method: "delete",
+                class: "button alert"
