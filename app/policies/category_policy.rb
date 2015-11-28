@@ -7,6 +7,6 @@ class CategoryPolicy < ApplicationPolicy
   end
 
   def show?
-    record.can_be_accessed_by?(user) || super
+    record.can_be_accessed_by?(@user) || super
   end
 end
