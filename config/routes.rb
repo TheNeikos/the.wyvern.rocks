@@ -1,5 +1,9 @@
 Rails.application.routes.draw do
 
+  resources :categories, only: [:show] do
+
+  end
+
   resources :users
   resource  :session, only: [:index, :new, :create, :show, :destroy]
 

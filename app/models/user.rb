@@ -20,6 +20,10 @@ class User < ActiveRecord::Base
     roles << Role.find_or_create_by(name: "User")
   end
 
+  def can_access? other
+    other.roles.empty? or (not (other.roles & self.roles).empty? and not other.roles.empty?)
+  end
+
   def has_role_root?
     !roles.find_by_name("root").nil?
   end

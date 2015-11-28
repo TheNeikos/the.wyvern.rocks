@@ -16,7 +16,7 @@ class ApplicationPolicy
   end
 
   def show?
-    scope.where(:id => record.id).exists?
+    @user.try!(:has_role_root?) && scope.where(:id => record.id).exists?
   end
 
   def create?

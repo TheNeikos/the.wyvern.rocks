@@ -12,5 +12,9 @@ FactoryGirl.define do
     factory :role_unregistered do
       name "Unregistered"
     end
+
+    factory :role_restricted do
+      name "Restricted"
+    end
   end
 end

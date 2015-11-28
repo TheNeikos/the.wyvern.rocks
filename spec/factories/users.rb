@@ -15,5 +15,11 @@ FactoryGirl.define do
           user.sessions << Session.create(user: user, ip: "localtest")
       end
     end
+
+    trait :restricted do
+      after :build do |user|
+          user.roles << Role.find_or_create_by(name: "Restricted")
+      end
+    end
   end
 end
