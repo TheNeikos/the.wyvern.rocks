@@ -3,10 +3,18 @@ FactoryGirl.define do
     sequence :name do |n|
       "Topic #{n}"
     end
-    user
+    transient do
+      user
+    end
 
     after(:build) do |topic|
       topic.category = Category.find_or_create_by(name: "General")
+    end
+
+    trait :restricted do
+      after(:build) do |topic|
+        topic.category.roles << Role.find_or_create_by(name: "Restricted")
+      end
     end
   end
 

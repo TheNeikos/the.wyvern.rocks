@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
 
-  resources :categories, only: [:show] do
-
+  resources :categories, shallow: true, only: [:show] do
+    resources :topics, only: [:new, :create, :edit, :update, :destroy, :show]
   end
 
   resources :users
