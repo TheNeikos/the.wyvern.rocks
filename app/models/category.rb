@@ -5,7 +5,6 @@ class Category < ActiveRecord::Base
   validates :name, uniqueness: { case_sensitive: true }
 
   def can_be_accessed_by? other
-    puts "What: ", self.roles.empty?, (other && other.can_access?(self))
     self.roles.empty? || (other && other.can_access?(self))
   end
 end

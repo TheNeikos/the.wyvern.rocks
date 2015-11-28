@@ -21,7 +21,7 @@ class User < ActiveRecord::Base
   end
 
   def can_access? other
-    other.roles.empty? or (not (other.roles & self.roles).empty? and not other.roles.empty?)
+    other.roles.empty? or (not (other.roles & self.roles).empty?)
   end
 
   def has_role_root?
