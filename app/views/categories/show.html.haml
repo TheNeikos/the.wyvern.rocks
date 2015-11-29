@@ -1,3 +1,12 @@
 .row
   .columns.small-12.category-info
     %h1= @category.name
+    .right
+      %ul.button-group
+        %li= link_to "New Topic", new_category_topic_path(@category), class: "button tiny"
+.row
+  .columns.small-12.topics-list
+    - @category.topics.each do |t|
+      .row
+        .columns.small-12
+          = render t

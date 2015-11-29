@@ -6,10 +6,22 @@
 
 #forum {
     @include panel(
-        $padding: 0rem
+        $padding: 0rem,
+        $bg: white
     );
 
+    a {
+        color: black;
+        font-weight: bold;
+
+        &:hover {
+            text-decoration: underline;
+        }
+    }
+
     .category-header {
+        border-bottom: $panel-border-color $panel-border-size $panel-border-style;
+
         h2 {
             padding: 0;
             font-size: 1.5rem;
@@ -17,9 +29,14 @@
             margin-right: 0.5em;
             margin-bottom: 0.2rem;
         }
-
+    }
+    .category {
         &:not(:last-child) {
             border-bottom: $panel-border-color $panel-border-size $panel-border-style;
+        }
+
+        .topic-rows {
+            padding: 0;
         }
     }
 }
