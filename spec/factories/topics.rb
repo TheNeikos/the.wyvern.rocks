@@ -16,7 +16,12 @@ FactoryGirl.define do
         topic.category.roles << Role.find_or_create_by(name: "Restricted")
       end
     end
+    trait :with_topics do
+      after(:create) do |topic|
+        5.times do
+          topic.posts << create(:post, )
+        end
+      end
+    end
   end
-
-
 end
