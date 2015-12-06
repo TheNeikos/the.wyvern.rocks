@@ -5,3 +5,13 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
+
+def role name
+  Role.find_or_create_by name: name
+end
+
+Category.find_or_create_by(name: "General")
+
+cat = Category.find_or_create_by(name: "Admin Area")
+cat.roles << role("Admin")
+cat.save

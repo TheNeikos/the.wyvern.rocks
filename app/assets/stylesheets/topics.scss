@@ -1,0 +1,15 @@
+// Place all the styles related to the topics controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+@import 'foundation';
+
+.topic {
+    @include clearfix;
+    @include panel(
+        $padding: 0.2rem,
+        $bg: white
+    );
+    border: none;
+    margin-bottom: 0.25rem;
+}

@@ -1,5 +1,5 @@
 class MainController < ApplicationController
   def index
-    skip_policy_scope
+    @categories = policy_scope(Category.all)
   end
 end

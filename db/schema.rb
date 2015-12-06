@@ -11,7 +11,34 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151118114655) do
+ActiveRecord::Schema.define(version: 20151206003427) do
+
+  create_table "categories", force: :cascade do |t|
+    t.string   "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["name"], name: "index_categories_on_name"
+  end
+
+  create_table "category_roles", force: :cascade do |t|
+    t.integer  "role_id"
+    t.integer  "category_id"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+    t.index ["category_id"], name: "index_category_roles_on_category_id"
+    t.index ["role_id"], name: "index_category_roles_on_role_id"
+  end
+
+  create_table "posts", force: :cascade do |t|
+    t.string   "type"
+    t.integer  "user_id"
+    t.integer  "topic_id"
+    t.text     "content"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["topic_id"], name: "index_posts_on_topic_id"
+    t.index ["user_id"], name: "index_posts_on_user_id"
+  end
 
   create_table "roles", force: :cascade do |t|
     t.string   "name"
@@ -27,6 +54,18 @@ ActiveRecord::Schema.define(version: 20151118114655) do
     t.datetime "updated_at", null: false
     t.string   "ip"
     t.index ["user_id"], name: "index_sessions_on_user_id"
+  end
+
+  create_table "topics", force: :cascade do |t|
+    t.string   "name"
+    t.string   "type"
+    t.integer  "user_id"
+    t.integer  "category_id"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+    t.decimal  "posts_count"
+    t.index ["category_id"], name: "index_topics_on_category_id"
+    t.index ["user_id"], name: "index_topics_on_user_id"
   end
 
   create_table "user_roles", force: :cascade do |t|

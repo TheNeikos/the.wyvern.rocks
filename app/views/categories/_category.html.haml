@@ -1,0 +1,12 @@
+.category
+  .category-header
+    %h2
+      = link_to category.name, category
+      - unless category.roles.empty?
+        %span.label.info.right
+          .has-tip{:'data-tooltip' => true, :'aria-haspopup' => true,
+                   title: "Visible for: " + category.roles.map{|x| x.name}.join(',')}
+            Visiblity
+  .row.topic-rows
+    .column.small-12
+      = render category.topics.limit 5

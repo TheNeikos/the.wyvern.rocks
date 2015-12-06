@@ -1,0 +1,12 @@
+.topic
+  .header
+    %strong= link_to topic.name, topic
+    .right.span
+      Posted by
+      = link_to topic.user.name, topic.user
+  .footer
+    %small.left.span
+      Created
+      = time_ago_in_words(topic.created_at)
+      ago
+

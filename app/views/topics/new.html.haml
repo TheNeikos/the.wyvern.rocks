@@ -1,0 +1,6 @@
+.row
+  .columns.small-offset-1.small-10
+    = simple_form_for [@category, @topic] do |f|
+      = f.error :base
+      = f.input :name
+      = f.button :submit

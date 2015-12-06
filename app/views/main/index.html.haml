@@ -1,36 +1,4 @@
 .row{:'data-equalizer' => true}
-  #news.columns.medium-12.large-3.panel{:'data-equalizer-watch' => true}
-    %h2 News
-    %hr
-    %ul.no-bullet
-      %li
-        %strong Lorem Ipsum
-        %p Lorem ipsum calam set amer
-      %li
-        %strong Lorem Ipsum
-        %p Lorem ipsum calam set amer
-      %li
-        %strong Lorem Ipsum
-        %p Lorem ipsum calam set amer
-      %li
-        %strong Lorem Ipsum
-        %p Lorem ipsum calam set amer
-  #forum.columns.medium-12.large-6.xlarge-5.panel{:'data-equalizer-watch' => true}
-    %h2 News
-    %hr
-    %ul.no-bullet
-      %li
-        %strong Lorem Ipsum
-        %p Lorem ipsum calam set amer
-      %li
-        %strong Lorem Ipsum
-        %p Lorem ipsum calam set amer
-      %li
-        %strong Lorem Ipsum
-        %p Lorem ipsum calam set amer
-      %li
-        %strong Lorem Ipsum
-        %p Lorem ipsum calam set amer
   #updates.columns.medium-12.large-3.panel{:'data-equalizer-watch' => true}
     %h2 News
     %hr
@@ -47,3 +15,5 @@
       %li
         %strong Lorem Ipsum
         %p Lorem ipsum calam set amer
+  #forum.columns.medium-12.large-9{:'data-equalizer-watch' => true}
+    = render @categories
