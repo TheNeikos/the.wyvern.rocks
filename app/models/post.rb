@@ -8,4 +8,8 @@ class Post < ActiveRecord::Base
   def anchor
     "post_#{id}"
   end
+
+  def position
+    topic.posts.where('created_at <= ?', created_at).count
+  end
 end
