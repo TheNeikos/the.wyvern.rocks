@@ -1,5 +1,9 @@
 .post
   .header
     = link_to post.user.name, post.user
+    .right{title: post.created_at}
+      Posted
+      = time_ago_in_words(post.created_at)
+      ago
   .content
     = post.content

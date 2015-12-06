@@ -2,5 +2,20 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+@import 'foundation';
 
+.post {
+    @include panel(
+        $padding: 0
+    );
+
+    .header {
+        border-bottom: 1px solid $panel-border-color;
+        padding: 0.1rem;
+    }
+
+    .content {
+        padding: 0.1rem;
+    }
+}
 

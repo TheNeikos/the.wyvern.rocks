@@ -5,6 +5,6 @@
     - if @user_can_reply
       = link_to "Reply", new_topic_post_path(@topic), class: "button tiny"
   .columns
-    - @topic.posts.each do |p|
+    - @topic.posts.all.order(created_at: :desc).each do |p|
       .row
         = render p if p.persisted?
