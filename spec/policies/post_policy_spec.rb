@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-describe PostPolicy do
+RSpec.describe PostPolicy do
 
   let(:user) { User.new }
 

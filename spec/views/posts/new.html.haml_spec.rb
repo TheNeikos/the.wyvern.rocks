@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe "post/new.html.haml", :type => :view do
+RSpec.describe "posts/new.html.haml", :type => :view do
   let (:topic) { create :topic }
   it "displays a content field" do
     assign(:topic, topic)

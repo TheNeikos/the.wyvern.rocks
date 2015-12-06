@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe "post/edit.html.haml", :type => :view do
+RSpec.describe "posts/edit.html.haml", :type => :view do
   let (:topic) { create :topic, :with_posts }
   it "displays a content field" do
     assign(:post, topic.posts.first)
@@ -10,6 +10,7 @@ RSpec.describe "post/edit.html.haml", :type => :view do
 
   it "displays an error when invalid" do
     post = topic.posts.first
+    post.content = ""
     post.valid?
     assign(:post, post)
     render

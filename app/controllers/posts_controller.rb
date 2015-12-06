@@ -1,4 +1,4 @@
-class PostController < ApplicationController
+class PostsController < ApplicationController
   before_action :load_topic, only: [:new, :create]
   def new
     @post = @topic.posts.build
@@ -8,10 +8,12 @@ class PostController < ApplicationController
   def create
     @post = @topic.posts.build create_params
     authorize @post
+    @post.user = current_user
 
     if @post.save
       redirect_to @post
     else
+      byebug
       render :new
     end
   end
@@ -26,7 +28,7 @@ class PostController < ApplicationController
     authorize @post
 
     if @post.update(update_params)
-      redirect_to topic_path(@post.topic, anchor: @post.anchor)
+      redirect_to @post
     else
       render :edit
     end

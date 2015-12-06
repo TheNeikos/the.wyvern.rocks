@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe PostController, :type => :controller do
+RSpec.describe PostsController, :type => :controller do
 
   context "for no logged in user" do
     let (:topic) { create :topic }
@@ -73,7 +73,8 @@ RSpec.describe PostController, :type => :controller do
     describe "POST create" do
       it "returns http success" do
         post :create, params: { topic_id: topic.id, post: {content: "what"} }
-        expect(response).to have_http_status(:success)
+        expect(response).to redirect_to(topic.posts.first)
+        expect(topic.posts.count).to eq 1
       end
     end
 
@@ -87,7 +88,7 @@ RSpec.describe PostController, :type => :controller do
     describe "post update" do
       it "returns http success" do
         post :update, params: { id: topic_post.id, post: {content: "wh"} }
-        expect(response).to redirect_to(topic_path(topic_post.topic, anchor: topic_post.anchor))
+        expect(response).to redirect_to(topic_post)
         expect(Post.find(topic_post.id).content).to eq "wh"
       end
     end

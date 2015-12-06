@@ -48,6 +48,7 @@ class TopicsController < ApplicationController
   def show
     @topic = Topic.find params[:id]
     authorize @topic
+    @user_can_reply = policy(@topic.posts.build).new?
   end
 
   private

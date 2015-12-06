@@ -3,6 +3,8 @@ FactoryGirl.define do
     type ""
     transient do
       user
+    end
+    transient do
       topic
     end
     content "Awesome reply!"
