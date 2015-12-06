@@ -1,9 +1,10 @@
-.post
+.post{id: post.anchor}
   .header
     = link_to post.user.name, post.user
     .right{title: post.created_at}
       Posted
       = time_ago_in_words(post.created_at)
       ago
+      = link_to "##{post.position}", post
   .content
     = post.content
