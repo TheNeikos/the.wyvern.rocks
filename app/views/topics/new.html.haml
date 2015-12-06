@@ -3,4 +3,6 @@
     = simple_form_for [@category, @topic] do |f|
       = f.error :base
       = f.input :name
+      = f.simple_fields_for :posts do |p|
+        = p.input :content
       = f.button :submit

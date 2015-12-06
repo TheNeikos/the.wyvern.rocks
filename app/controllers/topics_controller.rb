@@ -3,6 +3,7 @@ class TopicsController < ApplicationController
   def new
     @topic = @category.topics.build
     authorize @topic
+    @topic.posts.build
   end
 
   def create
@@ -10,6 +11,8 @@ class TopicsController < ApplicationController
     authorize @topic
 
     @topic.user = current_user
+    @topic.posts.first.user = current_user
+    @topic.posts.first.topic = @topic
 
     if @topic.save
       redirect_to @topic
@@ -59,7 +62,7 @@ class TopicsController < ApplicationController
   end
 
   def create_params
-    params.require(:topic).permit(:name)
+    params.require(:topic).permit(:name, posts_attributes: [[:content]])
   end
 
   def update_params

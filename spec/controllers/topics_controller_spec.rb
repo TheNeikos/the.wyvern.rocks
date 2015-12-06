@@ -75,9 +75,10 @@ RSpec.describe TopicsController, :type => :controller do
       it "returns http success" do
         post :create, params: {
           category_id: topic.category.id,
-          topic: { name: topic_b.name }
+          topic: { name: topic_b.name, posts_attributes: [content: "what"] }
         }
         expect(Topic.find_by_name(topic_b.name)).to_not eq nil
+        expect(Topic.find_by_name(topic_b.name).posts.count).to eq 1
         expect(response).to redirect_to(Topic.find_by_name(topic_b.name))
       end
     end
