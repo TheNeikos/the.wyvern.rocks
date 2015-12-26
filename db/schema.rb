@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151206003427) do
+ActiveRecord::Schema.define(version: 20151226072543) do
 
   create_table "categories", force: :cascade do |t|
     t.string   "name"
@@ -27,6 +27,15 @@ ActiveRecord::Schema.define(version: 20151206003427) do
     t.datetime "updated_at",  null: false
     t.index ["category_id"], name: "index_category_roles_on_category_id"
     t.index ["role_id"], name: "index_category_roles_on_role_id"
+  end
+
+  create_table "mail_tokens", force: :cascade do |t|
+    t.integer  "user_id"
+    t.string   "token"
+    t.datetime "valid_until"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+    t.index ["user_id"], name: "index_mail_tokens_on_user_id"
   end
 
   create_table "posts", force: :cascade do |t|

@@ -1,0 +1,8 @@
+Welcome to the Wyvern Rocks, <%= @user.name %>
+=============================<%= "=" * @user.name.length %>
+
+<% #TODO: Don't use the sites name directly -> ENV Vars %>
+You have sucessfully signed up to The Wyvern Rocks!
+
+To verify your e-mail and activate your account follow this link:
+<%= @url %>

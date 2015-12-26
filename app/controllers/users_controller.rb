@@ -18,6 +18,8 @@ class UsersController < ApplicationController
 
     if @user.save
       redirect_to @user
+      token = @user.mail_tokens.create
+      UserMailer.confirmation_mail(token).deliver_now
     else
       render :new
     end
@@ -57,6 +59,18 @@ class UsersController < ApplicationController
     else
       redirect_to user_path(@user)
     end
+  end
+
+  def verify_email
+    @user = UserVerifyToken.find(params['token']).user
+
+    authorize @user
+
+    @user.email_verified = true
+    @user.save
+
+    redirect_to session_new_path
+
   end
 
   private
