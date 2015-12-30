@@ -31,9 +31,12 @@ class SessionsController < ApplicationController
 
   def destroy
     if params[:sess_id].nil?
-      authorize current_user.sessions.find(session[:sess_id])
+      sess = current_user.sessions.find(session[:sess_id])
+      authorize sess
       session.delete :sess_id
       session.delete :user_id
+
+      sess.destroy
 
       redirect_to new_session_path
     else
