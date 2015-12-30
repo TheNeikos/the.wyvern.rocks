@@ -73,12 +73,12 @@ RSpec.describe User do
     end
   end
 
-  context 'can login' do
+  context 'can authenticate' do
     it 'when correct password is given' do
       expect(user.authenticate(user.password)).to_not eq false
     end
   end
-  context 'cannot login' do
+  context 'cannot authenticate' do
     it 'when incorrect password is given' do
       expect(user.authenticate(user.password + "asdf")).to eq false
     end

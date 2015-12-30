@@ -6,6 +6,7 @@ class User < ActiveRecord::Base
   has_many :roles, -> { distinct }, through: :user_roles
 
   has_many :sessions
+  has_many :mail_tokens
 
   has_many :topics
   has_many :posts

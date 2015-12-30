@@ -5,6 +5,7 @@ FactoryGirl.define do
     password "I have a Bunny!"
     password_confirmation "I have a Bunny!"
     is_banned false
+    verified_email true
 
     after(:build) do |user|
       user.roles << Role.find_or_create_by(name: "User")
