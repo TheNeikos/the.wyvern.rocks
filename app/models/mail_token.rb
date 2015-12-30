@@ -1,7 +1,8 @@
 class MailToken < ActiveRecord::Base
   belongs_to :user
 
-  before_validation on: :create do
+  before_create on: :create do
+    self.token = SecureRandom.hex 32
     self.valid_until = 1.day.from_now
   end
 

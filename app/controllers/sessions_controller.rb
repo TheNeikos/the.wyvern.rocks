@@ -12,7 +12,7 @@ class SessionsController < ApplicationController
 
     authorize @user
 
-    if @user and @user.authenticate(create_params[:password])
+    if @user.try!(:verified_email) and @user.authenticate(create_params[:password])
       sess = @user.sessions.create ip: request.remote_ip
       session[:sess_id] = sess.id
       session[:user_id] = @user.id

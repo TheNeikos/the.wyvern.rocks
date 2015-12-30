@@ -17,9 +17,9 @@ class UsersController < ApplicationController
     authorize @user
 
     if @user.save
-      redirect_to @user
       token = @user.mail_tokens.create
       UserMailer.confirmation_mail(token).deliver_now
+      redirect_to @user
     else
       render :new
     end
@@ -62,14 +62,24 @@ class UsersController < ApplicationController
   end
 
   def verify_email
-    @user = UserVerifyToken.find(params['token']).user
+    @token = MailToken.where('valid_until > ?', DateTime.now).find_by_token!(params['token'])
+    @user = @token.user
 
-    authorize @user
+    skip_authorization
+  end
 
-    @user.email_verified = true
+  def do_verify_email
+    @token = MailToken.where('valid_until > ?', DateTime.now).find_by_token!(params['token'])
+    @user = @token.user
+
+    skip_authorization
+
+    @user.verified_email = true
     @user.save
 
-    redirect_to session_new_path
+    @token.destroy
+
+    redirect_to new_session_path
 
   end
 

@@ -7,6 +7,7 @@ Rails.application.routes.draw do
   end
 
   resources :users do
+    post :do_verify_email
     get :verify_email
   end
   resource  :session, only: [:index, :new, :create, :show, :destroy]

@@ -19,6 +19,15 @@ RSpec.describe SessionsController, :type => :controller do
         expect(response).to redirect_to(root_path)
         expect(session[:sess_id]).to_not be_nil
       end
+      it "disallows for unverified emails" do
+        user.verified_email = false
+        user.save
+        post :create, params: {
+          user: { email: user.email, password: user.password }
+        }
+        expect(response).to_not redirect_to(root_path)
+        expect(session[:sess_id]).to be_nil
+      end
     end
 
     describe "GET show" do

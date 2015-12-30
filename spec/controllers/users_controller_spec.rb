@@ -63,6 +63,13 @@ RSpec.describe UsersController, :type => :controller do
         expect(response).to redirect_to new_session_path
       end
     end
+
+    describe "GET destroy" do
+      it "redirects to new session" do
+        post :destroy, params: { id: user.id }
+        expect(response).to redirect_to new_session_path
+      end
+    end
   end
 
   context "for a logged_in user" do
