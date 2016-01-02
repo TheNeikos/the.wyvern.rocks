@@ -1,6 +1,6 @@
 .row
   .columns.small-offset-1.small-10
-    = form_tag user_do_verify_email_url(@user), method: "POST" do |f|
+    = form_tag user_do_verify_email_path(@user), method: "POST" do |f|
       = label_tag :token, "Verification Token:"
       = text_field_tag :token, @token.try!(:token)
       = submit_tag "Verify EMail"
