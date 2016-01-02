@@ -11,6 +11,8 @@
       - if logged_in?
         = topbar_dropdown user_path(current_user), current_user.name do
           = topbar_link_to users_path, "Users"
-          = topbar_link_to session_path, "Log out"
+          = topbar_link_to session_path, "Sessions"
+          = topbar_link_to session_path, "Log out", :'data-method' => "DELETE", :'no-highlight' => true
       - else
-        = topbar_link_to new_session_path, "Sign in"
+        = topbar_dropdown new_user_path, "Register" do
+          = topbar_link_to new_session_path, "Sign in"

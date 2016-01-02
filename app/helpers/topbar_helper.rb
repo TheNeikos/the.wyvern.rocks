@@ -1,7 +1,8 @@
 module TopbarHelper
-  def topbar_link_to link, content
-    content_tag(:li, content_tag(:a, content, href: link),
-                class: [(:active if current_page?(link))])
+  def topbar_link_to link, content, opts={}
+    opts[:href] = link
+    content_tag(:li, content_tag(:a, content, opts),
+                class: [(:active if (current_page?(link) && !opts[:'no-highlight']))])
   end
 
   def topbar_dropdown link, content, &block

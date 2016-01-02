@@ -1,6 +1,6 @@
 .row
   .columns.small-offset-1.small-10
-    = simple_form_for @user, url: session_path do |f|
+    = simple_form_for @user, url: session_path, method: "post" do |f|
       = f.error :base
       = f.input :email
       = f.input :password
