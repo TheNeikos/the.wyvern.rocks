@@ -41,9 +41,6 @@ gem 'foundation-rails'
 # Use puma as the app server
 gem 'puma', group: [:development, :production]
 
-# Use Capistrano for deployment
-gem 'capistrano-rails', group: :development
-
 group :production do
   gem 'pg'
 end
@@ -64,4 +61,9 @@ group :development do
   gem 'better_errors'
   # Local mail delivery!
   gem 'letter_opener'
+  # Deployment
+  gem 'capistrano', require: false
+  gem 'capistrano-rails',   require: false
+  gem 'capistrano-bundler', require: false
+  gem 'capistrano3-puma',   require: false
 end

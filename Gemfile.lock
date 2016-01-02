@@ -134,6 +134,9 @@ GEM
     capistrano-rails (1.1.5)
       capistrano (~> 3.1)
       capistrano-bundler (~> 1.1)
+    capistrano3-puma (1.2.1)
+      capistrano (~> 3.0)
+      puma (>= 2.6)
     coderay (1.1.0)
     coffee-script (2.4.1)
       coffee-script-source
@@ -201,6 +204,7 @@ GEM
       activerecord (>= 3.0, < 6.0)
       activesupport (>= 3.0, < 6.0)
       request_store (~> 1.1)
+    pg (0.18.4)
     puma (2.15.3)
     pundit (1.0.1)
       activesupport (>= 3.0.0)
@@ -260,7 +264,10 @@ DEPENDENCIES
   bcrypt (~> 3.1.7)
   better_errors
   byebug
+  capistrano
+  capistrano-bundler
   capistrano-rails
+  capistrano3-puma
   coffee-rails!
   factory_girl_rails
   foundation-rails
@@ -270,6 +277,7 @@ DEPENDENCIES
   jquery-turbolinks
   letter_opener
   paper_trail (~> 4.0.0)
+  pg
   puma
   pundit
   rack!
