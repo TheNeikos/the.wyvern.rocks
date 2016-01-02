@@ -7,6 +7,7 @@
 # server 'example.com', user: 'deploy', roles: %w{app web}, other_property: :other_value
 # server 'db.example.com', user: 'deploy', roles: %w{db}
 
+server 'the.wyvern.rocks', [:app, :web, :db, primary: true]
 
 
 # role-based syntax
