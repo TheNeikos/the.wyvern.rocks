@@ -19,6 +19,7 @@ class UsersController < ApplicationController
     if @user.save
       token = @user.mail_tokens.create
       UserMailer.confirmation_mail(token).deliver_now
+      flash[:notice] = "We have sent an activation email to you. Please also check your spam folder for overzealous filters."
       redirect_to @user
     else
       render :new
