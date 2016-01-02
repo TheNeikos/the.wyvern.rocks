@@ -27,5 +27,5 @@ production:
   encoding: utf8
   database: thewyvernrocks
   pool: 5
-  username: <%= ENV['DATABSE_USER'] %>
-  password: <%= ENV['DATABSE_PASS'] %>
+  username: #{ENV['DATABSE_USER']}
+  password: #{ENV['DATABSE_PASS']}
