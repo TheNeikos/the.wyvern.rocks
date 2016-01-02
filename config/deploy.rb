@@ -23,6 +23,7 @@ set :puma_init_active_record, true  # Change to false when not using ActiveRecor
 set :rails_env, 'production'
 set :conditionally_migrate, true
 set :assets_roles, [:web, :app]
+set :assets_prefix, 'assets'
 
 
 ## Defaults:
@@ -34,7 +35,7 @@ set :assets_roles, [:web, :app]
 
 ## Linked Files & Directories (Default None):
 set :linked_files, %w{config/database.yml}
-set :linked_dirs,  %w{bin log tmp/pids tmp/cache tmp/sockets vendor/bundle public/system}
+set :linked_dirs,  %w{bin log tmp/pids tmp/cache tmp/sockets vendor/bundle public/system public/assets}
 
 namespace :puma do
   desc 'Create Directories for Puma Pids and Socket'
@@ -76,7 +77,7 @@ namespace :deploy do
   end
 
   before :starting,     :check_revision
-  after  :finishing,    :compile_assets
+  before :finishing,    :compile_assets
   after  :finishing,    :cleanup
   after  :finishing,    :restart
 end
