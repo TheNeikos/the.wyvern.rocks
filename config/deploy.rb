@@ -22,6 +22,7 @@ set :puma_init_active_record, true  # Change to false when not using ActiveRecor
 
 set :rails_env, 'production'
 set :conditionally_migrate, true
+set :assets_roles, [:web, :app]
 
 
 ## Defaults:
