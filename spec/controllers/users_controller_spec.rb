@@ -33,6 +33,7 @@ RSpec.describe UsersController, :type => :controller do
         user2 = User.find_by_email(user2.email)
         expect(response).to redirect_to user_path(user2)
         expect(user2).to_not be_nil
+        expect(flash[:notice]).to_not be_nil
       end
     end
 
