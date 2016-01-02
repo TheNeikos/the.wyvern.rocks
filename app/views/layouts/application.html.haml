@@ -32,6 +32,12 @@
           %a{href: "https://github.com/theneikos/the.wyvern.rocks/issues/new"}
             Github
           \. You can also post them into the Bug Reporting Station in the Forums.
+      - if not flash[:notice].nil? then
+        .row
+          .columns.small-12
+            .alert-box.info
+              = flash[:notice]
+              %a{href: '#', class:'close'} &times;
       = yield
 
   %footer
