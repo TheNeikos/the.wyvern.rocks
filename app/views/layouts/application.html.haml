@@ -15,6 +15,23 @@
     = render 'common/topbar'
 
     #content
+      .panel.callout.radius
+        %p
+          Welcome to
+          %em The Wyvern Rocks
+          \! We are a young community, just on the verge of starting up.
+          Call it pre-alpha, this means not everything will always work
+          all the time. However, steady progress will transform this into
+          something great. Hold tight and let's cruise through these uncharted
+          waters together!
+        %p
+          If you do find any bugs, please report them per email,
+          to
+          %em neikos at neikos dot email
+          or on
+          %a{href: "https://github.com/theneikos/the.wyvern.rocks/issues/new"}
+            Github
+          \. You can also post them into the Bug Reporting Station in the Forums.
       = yield
 
   %footer
