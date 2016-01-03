@@ -2,5 +2,6 @@
   .columns.small-offset-1.small-10
     = simple_form_for [@topic, @post] do |f|
       = f.error :base
-      = f.input :content
+      %textarea#post_content.text.required{required: true, name: "post[content]"}= @post.content
+      = f.error :content
       = f.button :submit
