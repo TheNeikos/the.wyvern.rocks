@@ -1,9 +1,20 @@
 .topic
   .header
     %strong= link_to topic.name, topic
-    .right.span
+    .actions.right.text-right
       Posted by
       = link_to topic.user.name, topic.user
+      ,
+      = time_ago_in_words(topic.created_at)
+      ago
+      - unless topic.posts.count < 1
+        %br
+        = link_to "Last Reply", topic.posts.last
+        by
+        - user = topic.posts.last.user
+        = link_to user.name, user
+        = time_ago_in_words(topic.posts.last.created_at)
+        ago
   .footer
     %small.left.span
       Created
