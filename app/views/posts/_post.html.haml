@@ -11,4 +11,4 @@
         = link_to "Edit", edit_post_path(post), class: "edit-button"
       = link_to "##{post.position}", post
   .content
-    = markdown post.content
+    ~ markdown post.content
