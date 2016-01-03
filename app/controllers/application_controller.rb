@@ -8,7 +8,15 @@ class ApplicationController < ActionController::Base
   after_action :verify_authorized, :except => :index
   after_action :verify_policy_scoped, :only => :index
 
+
+  rescue_from Pundit::NotAuthorizedError, with: :user_not_authorized
+
   protected
+
+  def user_not_authorized
+    flash[:alert] = "You are not authorized to perform this action."
+    redirect_to root_path
+  end
 
   def check_logged_in
     redirect_to session_path if current_user
