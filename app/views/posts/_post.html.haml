@@ -2,9 +2,11 @@
   .header
     = link_to post.user.name, post.user
     .right{title: post.created_at}
+      - if policy(post).edit?
+        = link_to "Edit", edit_post_path(post), class: "edit-button"
       Posted
       = time_ago_in_words(post.created_at)
       ago
       = link_to "##{post.position}", post
   .content
-    = post.content
+    = markdown post.content
