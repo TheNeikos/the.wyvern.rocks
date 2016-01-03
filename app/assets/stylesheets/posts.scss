@@ -5,14 +5,17 @@
 @import 'foundation';
 
 .post {
-    @include panel(
-        $padding: 0
-    );
+    padding: 0.8rem;
+    padding-top: 0;
+    margin-bottom: 1rem;
+    border-bottom: 1px solid rgba($panel-border-color, 0.5);
 
     .header {
         border-bottom: 1px solid $panel-border-color;
         padding: 0.1rem;
+        margin-bottom: 0.5rem;
     }
+
 
     .content {
         padding: 0.1rem;

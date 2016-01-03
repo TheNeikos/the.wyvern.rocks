@@ -6,7 +6,7 @@
 
 #forum {
     @include panel(
-        $padding: 0rem,
+        $padding: 0.3rem,
         $bg: white
     );
 
