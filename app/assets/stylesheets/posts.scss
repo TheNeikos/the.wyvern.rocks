@@ -17,5 +17,15 @@
     .content {
         padding: 0.1rem;
     }
+
+    .edit_button {
+        @include button(
+            $padding: 0.1rem,
+            $radius: true
+        );
+        font-size: 0.8rem;
+        position: relative;
+        bottom: 1px;
+    }
 }
 

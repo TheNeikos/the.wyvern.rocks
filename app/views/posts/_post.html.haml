@@ -2,6 +2,7 @@
   .header
     = link_to post.user.name, post.user
     .right{title: post.created_at}
+      = link_to "Edit", edit_post_path(post), class: "edit_button"
       Posted
       = time_ago_in_words(post.created_at)
       ago
