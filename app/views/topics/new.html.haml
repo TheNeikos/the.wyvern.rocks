@@ -4,5 +4,5 @@
       = f.error :base
       = f.input :name
       = f.simple_fields_for :posts do |p|
-        = p.input :content
+        = p.input :content, input_html: {rows: 25}
       = f.button :submit
