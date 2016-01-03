@@ -1,12 +1,14 @@
 .post{id: post.anchor}
   .header
     = link_to post.user.name, post.user
-    .right{title: post.created_at}
-      - if policy(post).edit?
-        = link_to "Edit", edit_post_path(post), class: "edit-button"
+    %small{title: post.created_at}
       Posted
+      this
       = time_ago_in_words(post.created_at)
       ago
+    .right
+      - if policy(post).edit?
+        = link_to "Edit", edit_post_path(post), class: "edit-button"
       = link_to "##{post.position}", post
   .content
-    = markdown post.content
+    ~ markdown post.content

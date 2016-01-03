@@ -35,7 +35,8 @@ set :assets_prefix, 'assets'
 
 ## Linked Files & Directories (Default None):
 set :linked_files, %w{config/database.yml}
-set :linked_dirs,  %w{bin log tmp/pids tmp/cache tmp/sockets vendor/bundle public/system public/assets}
+set :linked_dirs,  %w{log tmp/pids tmp/cache tmp/sockets vendor/bundle public/system public/assets}
+set :bundle_binstubs, nil
 
 namespace :deploy do
   desc "Make sure local git is in sync with remote."

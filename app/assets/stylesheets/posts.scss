@@ -5,27 +5,34 @@
 @import 'foundation';
 
 .post {
-    @include panel(
-        $padding: 0
-    );
+    padding: 0.8rem;
+    padding-top: 0;
+    margin-bottom: 1rem;
 
     .header {
         border-bottom: 1px solid $panel-border-color;
         padding: 0.1rem;
+        margin-bottom: 0.5rem;
     }
+
 
     .content {
         padding: 0.1rem;
+        overflow-x: hidden;
+        overflow-wrap: normal;
     }
 
     .edit-button {
         @include button(
-            $padding: 0.1rem,
-            $radius: true
+            $padding: 0.2rem
         );
         font-size: 0.8rem;
         position: relative;
         bottom: 1px;
+        display: inline;
     }
 }
 
+#post_content {
+    font-family: $font-family-monospace;
+}

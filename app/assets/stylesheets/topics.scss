@@ -7,7 +7,7 @@
 .topic {
     @include clearfix;
     @include panel(
-        $padding: 0.2rem,
+        $padding: 0.8rem,
         $bg: white
     );
     border: none;

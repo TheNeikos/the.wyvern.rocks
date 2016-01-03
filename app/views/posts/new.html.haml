@@ -1,6 +1,11 @@
 .row
   .columns.small-offset-1.small-10
+    %h3
+      Posting to
+      %em= @topic.name
+.row
+  .columns.small-offset-1.small-10
     = simple_form_for [@topic, @post] do |f|
       = f.error :base
-      = f.input :content
+      = f.input :content, input_html: {rows: 25}
       = f.button :submit

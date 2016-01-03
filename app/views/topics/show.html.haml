@@ -1,9 +1,10 @@
 .row
   .columns.small-offset-1.small-10
     %h1=@topic.name
-  .columns.small-12.panel
-    - if policy(Post.new topic: @topic).new?
-      = link_to "Reply", new_topic_post_path(@topic), class: "button tiny"
+  .columns.small-12
+    .right
+      - if policy(Post.new topic: @topic).new?
+        = link_to "Reply", new_topic_post_path(@topic), class: "button tiny"
   .columns
     - @topic.posts.all.order(created_at: :asc).each do |p|
       .row

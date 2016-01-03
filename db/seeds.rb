@@ -10,7 +10,7 @@ def role name
   Role.find_or_create_by name: name
 end
 
-Category.find_or_create_by(name: "General")
+Category.find_or_create_by(name: "The Wyvern Rocks")
 
 cat = Category.find_or_create_by(name: "Admin Area")
 cat.roles << role("Admin")

@@ -164,9 +164,13 @@ GEM
       activesupport (>= 3.0, < 6.0)
       request_store (~> 1.1)
     pg (0.18.4)
+    posix-spawn (0.3.11)
     puma (2.15.3)
     pundit (1.0.1)
       activesupport (>= 3.0.0)
+    pygments.rb (0.6.3)
+      posix-spawn (~> 0.3.6)
+      yajl-ruby (~> 1.2.0)
     rack (2.0.0.alpha)
       json
     rack-test (0.6.3)
@@ -252,6 +256,7 @@ GEM
     websocket-driver (0.6.3)
       websocket-extensions (>= 0.1.0)
     websocket-extensions (0.1.2)
+    yajl-ruby (1.2.1)
 
 PLATFORMS
   ruby
@@ -275,6 +280,7 @@ DEPENDENCIES
   pg
   puma
   pundit
+  pygments.rb
   rails (~> 5.0.0.beta)
   redcarpet
   rspec-rails (~> 3.0)
