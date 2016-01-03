@@ -1,4 +1,5 @@
 module ApplicationHelper
+  include Pundit
   def markdown(text)
     options = {no_intra_emphasis: true, tables: true,
                fenced_code_blocks: true, disable_indented_code_block: true,

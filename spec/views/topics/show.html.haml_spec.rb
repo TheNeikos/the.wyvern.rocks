@@ -16,13 +16,12 @@ RSpec.describe "topics/show.html.haml", :type => :view do
     end
     it "displays a reply button when logged in" do
       assign(:topic, topic)
-      assign(:user_can_reply, true) #TODO: Fix this god awful shortcoming
       render
       expect(rendered).to match(/Reply/)
     end
     it "does not display a reply button when not authorized" do
+      session[:sess_id] = nil
       assign(:topic, topic)
-      assign(:user_can_reply, false)
       render
       expect(rendered).to_not match(/Reply/)
     end

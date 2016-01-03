@@ -9,7 +9,9 @@ class ApplicationController < ActionController::Base
   after_action :verify_policy_scoped, :only => :index
 
 
-  rescue_from Pundit::NotAuthorizedError, with: :user_not_authorized
+  if not Rails.env.test? then
+    rescue_from Pundit::NotAuthorizedError, with: :user_not_authorized
+  end
 
   protected
 
