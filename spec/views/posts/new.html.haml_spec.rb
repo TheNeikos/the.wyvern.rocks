@@ -17,4 +17,11 @@ RSpec.describe "posts/new.html.haml", :type => :view do
     render
     expect(rendered).to match(/error/)
   end
+
+  it "displays the topic title" do
+    assign(:topic, topic)
+    assign(:post, topic.posts.build)
+    render
+    expect(rendered).to match(topic.name)
+  end
 end
