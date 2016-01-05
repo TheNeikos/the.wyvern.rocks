@@ -19,7 +19,7 @@ As an additional feature, only she can actually merge PRs. This rule may be
 overriden should the situation arise (critical security error, etc..).
 
 
-## Copyright
+## License
 
 The code itself is licensed under the
 [AGPLv3](https://github.com/TheNeikos/the.wyvern.rocks/blob/master/LICENSE).
